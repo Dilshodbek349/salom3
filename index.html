@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salom Test</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<svg width="0" height="0" style="position:absolute"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"/></filter></defs></svg>
+<nav id="nav"></nav>
+<main>
+
+<section id="v-home" class="view" hidden>
+  <h1>Salom Test</h1>
+  <div class="card">
+    <p>Manga maktab uchun test platformasi. Admin test yaratadi, o'quvchi shu testni yechib natijasini ko'radi.</p><br>
+    <button onclick="go(me().role)">Panelga o'tish</button>
+  </div>
+</section>
+
+<section id="v-about" class="view" hidden>
+  <h1>Maktab haqida</h1>
+  <div class="card"><p>Manga maktab — chizish, hikoya yozish va yapon madaniyatini sevuvchilar uchun o'quv markazi. Salom Test orqali bilimingizni onlayn tekshirasiz.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Maqsadimiz</h2><p>Har bir o'quvchi o'z manga hikoyasini yarata olishi.</p></div>
+    <div class="card"><h2>Qulaylik</h2><p>Testlar istalgan vaqtda, istalgan qurilmada.</p></div>
+    <div class="card"><h2>Natija</h2><p>Ballar va reyting bilan o'sishni kuzating.</p></div>
+  </div>
+</section>
+
+<section id="v-courses" class="view" hidden>
+  <h1>Kurslar</h1>
+  <div class="grid" id="courseList"></div>
+</section>
+
+<section id="v-teachers" class="view" hidden>
+  <h1>Ustozlar</h1>
+  <div class="grid">
+    <div class="card"><h2>🎨 Ustoz 1</h2><p>Manga chizish va personaj dizayni.</p></div>
+    <div class="card"><h2>✍️ Ustoz 2</h2><p>Hikoya va storyboard.</p></div>
+    <div class="card"><h2>🇯🇵 Ustoz 3</h2><p>Yapon tili va madaniyati.</p></div>
+  </div>
+</section>
+
+<section id="v-rating" class="view" hidden>
+  <h1>Reyting 🏆</h1>
+  <div class="card" id="ratCard" hidden><table><tr><th>#</th><th>O'quvchi</th><th>Testlar</th><th>Jami ball</th></tr><tbody id="rt"></tbody></table></div>
+</section>
+
+<section id="v-contact" class="view" hidden>
+  <h1>Aloqa</h1>
+  <div class="card narrow">
+    <input id="cn" placeholder="Ismingiz">
+    <input id="cm" placeholder="Xabaringiz">
+    <button onclick="sendContact()">Yuborish</button>
+  </div>
+</section>
+
+<section id="v-auth" class="view" hidden>
+  <div class="goo"><i></i><i></i><i></i></div>
+  <div class="narrow intro"><h1>Salom Test</h1><p>Davom etish uchun ro'yxatdan o'ting yoki kiring.</p></div>
+  <div class="card narrow">
+    <h2 id="authTitle"></h2>
+    <div class="tabs"><button data-role="student" onclick="setAuth('student')">O'quvchi</button><button data-role="admin" onclick="setAuth('admin')">Admin</button></div>
+    <div class="tabs"><button data-mode="register" onclick="setAuth(null,'register')">Ro'yxatdan o'tish</button><button data-mode="login" onclick="setAuth(null,'login')">Kirish</button></div>
+    <div id="nameRow"><input id="name" placeholder="Ism familiya"></div>
+    <input id="email" type="email" placeholder="Email">
+    <input id="pass" type="password" placeholder="Parol">
+    <div id="codeRow"><input id="code" placeholder="Admin maxfiy kodi"></div>
+    <p class="msg" id="msg"></p>
+    <button onclick="submitAuth()">Davom etish</button>
+  </div>
+</section>
+
+<section id="v-student" class="view" hidden>
+  <h1>Testlar</h1>
+  <div id="list"></div>
+  <div id="take"></div>
+  <div class="card"><h2>Video darsliklar 🎬</h2><p>Har bir fandan bittadan YouTube video dars.</p><br><div class="grid" id="videos"></div></div>
+  <div class="card" id="myCard" hidden><h2>Mening natijalarim</h2><table><tr><th>Test</th><th>Ball</th><th>Sana</th></tr><tbody id="my"></tbody></table></div>
+</section>
+
+<section id="v-admin" class="view" hidden>
+  <h1>Admin panel</h1>
+  <div class="card"><h2>Yangi test yaratish</h2>
+    <input id="tTitle" placeholder="Test nomi">
+    <div id="qs"></div>
+    <button class="ghost" onclick="addQ()">+ Savol qo'shish</button> <button onclick="saveTest()">Testni saqlash</button>
+  </div>
+  <div class="card"><h2>Mavjud testlar</h2><div id="tests"></div></div>
+  <div class="card" id="resCard" hidden><h2>O'quvchilar natijalari</h2><table><tr><th>O'quvchi</th><th>Test</th><th>Ball</th><th>Sana</th></tr><tbody id="res"></tbody></table></div>
+  <div class="card"><h2>Kelgan xabarlar</h2><div id="msgs"></div></div>
+</section>
+
+</main>
+<svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 60 C240 120 480 0 720 60 C960 120 1200 0 1440 60 L1440 120 L0 120Z"/></svg>
+<footer>© 2026 Salom Test · Manga maktab</footer>
+
+<button id="botBtn" onclick="$('#bot').classList.toggle('open')">💬</button>
+<div id="bot" class="card">
+  <b>Salom yordamchi 🤖</b>
+  <div id="botLog"><div>Salom! Savolingizni yozing 🙂</div></div>
+  <input id="botIn" placeholder="Savol yozing..." onkeydown="if(event.key==='Enter')ask()">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
